@@ -1,26 +1,55 @@
-# 🚀 BASE DDD API / Node.js, Express, TypeScript and Prisma
-I created this base API to speed up the development of new projects in my day-to-day work, with a focus on productivity, standardization and reduction of rework. The structure follows DDD (Domain-Driven Design) principles and uses technologies such as Node.js, Express, TypeScript, Prisma and Jest — forming a solid, scalable base that is ready to evolve according to the project's demands.
+# 🚀 Financial API Base / Node.js, Express, TypeScript, Prisma & DDD
+This base API was created to accelerate the development of financial projects, focusing on Assets, Transactions, and Institutions, using Domain-Driven Design (DDD) principles. The structure is modular, scalable, and ready to evolve according to your project's needs. It uses Node.js, Express, TypeScript, Prisma, and Jest for testing, forming a solid base for financial systems.
+
+## ✅ Features
+<ul> 
+  <li>Domain modularized structure following DDD principles</li> 
+  <li>Financial modeling for Institutions, Assets, AssetTypes, and Transactions</li> 
+  <li>Enums for TransactionType, Currency, and TransactionStatus for consistent data</li> <li>Database integration via Prisma</li> 
+  <li>Automated testing with Jest</li> 
+  <li>Complete typing with TypeScript</li> 
+  <li>Good practices and design patterns applied</li> 
+  <li>Seeders for initial data (Institutions, AssetTypes, Assets, Transactions)</li> 
+</ul>
+
+## 💡 Notes
+<ul> 
+  <li>Transaction.amount is stored in atomic units (cents) to avoid rounding issues.</li>
+  <li>TransactionType, Currency, and TransactionStatus are enums for data consistency.</li>
+  <li>
+    Seeders follow a modular structure (seedInstitutions.ts, seedAssetTypes.ts, seedAssets.ts, seedTransactions.ts) and can be executed sequentially.
+  </li>
+</ul>
 
 ## 📦 Technologies
 <table> 
   <tr> 
-    <td align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="40" alt="Node.js"/><br/> <strong>Node.js</strong> </td> 
-    <td align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="40" alt="Express"/><br/> <strong>Express</strong> </td> 
-    <td align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40" alt="TypeScript"/><br/> <strong>TypeScript</strong> </td> 
-    <td align="center"> <img src="https://raw.githubusercontent.com/prisma/presskit/main/Assets/Prisma-DarkSymbol.svg" width="40" alt="Prisma"/><br/> <strong>Prisma</strong> </td> 
-    <td align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" width="40" alt="Jest"/><br/> <strong>Jest</strong> </td> 
-    <td align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" alt="Docker"/><br/> <strong>Docker</strong> </td> 
-  </tr> 
+    <td align="center"> 
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="40" alt="Node.js"/><br/> 
+      <strong>Node.js</strong> 
+    </td> 
+    <td align="center"> 
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="40" alt="Express"/><br/> 
+      <strong>Express</strong> 
+    </td> 
+    <td align="center"> 
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40" alt="TypeScript"/><br/> 
+      <strong>TypeScript</strong> 
+    </td> 
+    <td align="center"> 
+      <img src="https://raw.githubusercontent.com/prisma/presskit/main/Assets/Prisma-DarkSymbol.svg" width="40" alt="Prisma"/><br/> 
+      <strong>Prisma</strong> 
+    </td> 
+    <td align="center"> 
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" width="40" alt="Jest"/><br/> 
+      <strong>Jest</strong> 
+    </td> 
+    <td align="center"> 
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" alt="Docker"/><br/> 
+      <strong>Docker</strong> 
+    </td>
+  </tr>
 </table>
-
-## ✅ Features
-<ul>
-  <li>Domain modularized structure</li>
-  <li>Database integration by Prisma</li>
-  <li>Automated Testing with Jest</li>
-  <li>Complete typing with TypeScript</li>
-  <li>Good practices and design patterns</li>
-</ul>
 
 ## 📍 Running
 
@@ -29,8 +58,8 @@ I created this base API to speed up the development of new projects in my day-to
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/LucasGRPiovesan/start-ddd-base-api.git
-cd start-ddd-base-api/
+git clone https://github.com/LucasGRPiovesan/node-my-financial-backend.git
+cd node-my-financial-backend/
 ```
 
 2. Copy the ***.env.example*** file to ***.env***, adjust the variables according to your environment, config the docker-compose.override.yml file for services and, on schema.prisma configuration file, you need to config the provider as your preference: 
@@ -55,8 +84,8 @@ docker-compose up --build
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/LucasGRPiovesan/start-ddd-base-api.git
-cd start-ddd-base-api/
+git clone https://github.com/LucasGRPiovesan/node-my-financial-backend.git
+cd node-my-financial-backend/
 ```
 
 2. Install the dependencies:

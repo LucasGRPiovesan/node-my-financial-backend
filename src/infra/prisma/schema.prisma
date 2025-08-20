@@ -118,3 +118,96 @@ model ModulePermissionProfile {
   @@map("tbl_module_permission_profile")
 }
 
+model Institution {
+  id        Int      @id @default(autoincrement())
+  uuid      String   @unique @default(uuid())
+  name      String
+  code      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  assets    Asset[]
+
+  @@map("tbl_institution")
+}
+
+model AssetType {
+  id        Int      @id @default(autoincrement())
+  uuid      String   @unique @default(uuid())
+  name      String   
+  description String?  
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  assets    Asset[]
+
+  @@map("tbl_asset_type")
+}
+
+model Asset {
+  id               Int       @id @default(autoincrement())
+  uuid             String    @unique @default(uuid())
+  uuid_institution String
+  uuid_asset_type  String
+  name             String
+  description      String
+
+  bank      Institution @relation(fields: [uuid_institution], references: [uuid])
+  assetType AssetType   @relation(fields: [uuid_asset_type], references: [uuid])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  transactions Transaction[]
+
+  @@map("tbl_asset")
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  INTEREST
+  DIVIDEND
+  APPRECIATION
+  FEE
+}
+
+enum Currency {
+  BRL
+  USD
+  EUR
+  GBP
+  JPY
+}
+
+enum TransactionStatus {
+  PENDING
+  CONFIRMED
+  CANCELED
+}
+
+model Transaction {
+  id        Int       @id @default(autoincrement())
+  uuid      String    @unique @default(uuid())
+  
+  uuid_asset String
+  type      TransactionType
+  currency  Currency
+  status    TransactionStatus
+  amount    Int       
+  note      String?   // observações ou referência externa
+  
+  asset     Asset     @relation(fields: [uuid_asset], references: [uuid])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  @@map("tbl_transaction")
+}
+

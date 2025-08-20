@@ -43,5 +43,8 @@ export async function seedModulePermissionsProfile(prisma: PrismaClient) {
     },
   ];
   
-  return prisma.modulePermissionProfile.createMany({ data: modulesPermissionsProfile });
+  return prisma.modulePermissionProfile.createMany({ 
+    data: modulesPermissionsProfile,
+    skipDuplicates: true 
+  });
 }

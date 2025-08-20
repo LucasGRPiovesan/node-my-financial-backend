@@ -21,5 +21,8 @@ export async function seedModules(prisma: PrismaClient) {
     },
   ];
   
-  return prisma.module.createMany({ data: modules });
+  return prisma.module.createMany({ 
+    data: modules,
+    skipDuplicates: true 
+  });
 }

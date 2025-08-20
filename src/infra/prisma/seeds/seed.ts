@@ -1,10 +1,14 @@
 import prisma from '../index';
+import { seedAsset } from './seedAssets';
+import { seedAssetType } from './seedAssetTypes';
+import { seedInstitution } from './seedInstitutions';
 import { seedModulePermissions } from './seedModulePermissions';
 import { seedModulePermissionsProfile } from './seedModulePermissionsProfile';
 import { seedModules } from './seedModules';
 import { seedPermissions } from './seedPermissions';
 
 import { seedProfiles } from './seedProfiles';
+import { seedTransaction } from './seedTransactions';
 import { seedUsers } from './seedUsers';
 
 async function main() {
@@ -14,6 +18,10 @@ async function main() {
   await seedPermissions(prisma);
   await seedModulePermissions(prisma);
   await seedModulePermissionsProfile(prisma);
+  await seedInstitution(prisma);
+  await seedAssetType(prisma);
+  await seedAsset(prisma);
+  await seedTransaction(prisma);
 }
 
 main()

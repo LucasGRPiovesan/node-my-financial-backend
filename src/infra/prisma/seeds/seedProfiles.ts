@@ -9,5 +9,8 @@ export async function seedProfiles(prisma: PrismaClient) {
     }
   ];
   
-  return prisma.profile.createMany({ data: profiles });
+  return prisma.profile.createMany({ 
+    data: profiles,
+    skipDuplicates: true
+  });
 }

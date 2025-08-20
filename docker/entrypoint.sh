@@ -3,14 +3,14 @@
 # Fail fast
 set -e
 
-echo "Aguardando o banco de dados iniciar..."
+# echo "Aguardando o banco de dados iniciar..."
 
-# Aguarda o MySQL ficar disponível
-until mysqladmin ping -h"$DB_HOST" --silent; do
-  sleep 2
-done
+# # Aguarda o MySQL ficar disponível
+# until mysqladmin ping -h"$DB_HOST" --silent; do
+#   sleep 2
+# done
 
-echo "Banco de dados iniciado!"
+# echo "Banco de dados iniciado!"
 
 # Instala dependências (caso container seja recriado sem cache)
 echo "Instalando dependências do Node..."

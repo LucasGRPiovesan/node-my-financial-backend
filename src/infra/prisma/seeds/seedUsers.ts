@@ -13,5 +13,8 @@ export async function seedUsers(prisma: PrismaClient) {
     },
   ];
   
-  return prisma.user.createMany({ data: users });
+  return prisma.user.createMany({ 
+    data: users,
+    skipDuplicates: true
+  });
 }
