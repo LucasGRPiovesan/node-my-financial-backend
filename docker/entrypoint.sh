@@ -25,8 +25,8 @@ echo "Executando migrations..."
 npm run prisma:migrate
 
 # Executa os seeders
-echo "Executando seeders..."
-npm run prisma:seed
+# echo "Executando seeders..."
+# npm run prisma:seed
 
 # Roda testes com Jest
 echo "Executando testes com Jest..."

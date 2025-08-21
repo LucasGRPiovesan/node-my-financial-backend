@@ -3,10 +3,23 @@ import router from "./src/infra/http/routes/router";
 import dotenv from 'dotenv';
 
 const app = express();
+const cors = require('cors');
 const morgan = require('morgan');
 
 dotenv.config();
 const port = process.env.PORT;
+
+app.use(
+  cors({
+    origin: (origin:any, callback:any) => {
+      if (!origin || /^http:\/\/localhost:\d+$/.test(origin)) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    },
+  })
+);
 
 app.use(express.json());
 app.use(morgan('dev'));

@@ -121,8 +121,11 @@ model ModulePermissionProfile {
 model Institution {
   id        Int      @id @default(autoincrement())
   uuid      String   @unique @default(uuid())
+  
   name      String
   code      String?
+  logoUrl   String?
+  balance   Int
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
